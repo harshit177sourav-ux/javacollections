@@ -1,0 +1,60 @@
+/*
+    Working of Map:
+
+    Components:
+        1. Key
+        2. Value
+        3. Bucket (Nothing but Array)
+        4. Hash Function
+
+     Hash Function:
+     1. Same Input will produce same output
+     2. 32/64 but
+     3. fast Computation
+
+     How Data is stored?
+        1. Hashing the Key: Key is passed to Hash functions -> Generate Hash Code
+        2. Calculate Index : int index = hashCode % arraySize (Default Size = 16)
+        3. Storing in the Bucket: Key/value pair is stored in the bucket at the calculated index
+
+     How HashMap retrieves data?
+        1. Hashing the Key
+        2. Finding the index
+        3. Searching the bucket
+
+      Why Searching ?? if that's just an array
+      --> There can be a chance that different input can generate same output
+
+      So every Index has a Linked List to handle collision
+
+      Now the problem occurs that if we have a long linked list and the element we are searching is in the last, it'll take around O(n) time complexity
+
+      So after Java 8, we started using Balance Binary Search Tree (Red Black Tree) only after Threshold of 8
+
+      Note:
+      The default Size of array is 16.
+      Load Factor : 0.75
+
+      We can pass that in the constructor as well -> new HashMap<>(17, 0.5f);
+
+      When array size exceeds 12, Array size is doubled, All existing entries are rehashing
+
+      Time Complexity:
+
+      1. put() -> O(log n)
+      2. get() -> O(log n)
+      3. remove() -> O(log n)
+      4. containsKey() -> O(log n)
+      5. containsValue() -> O(n)
+      6. size() -> O(n)
+
+      O(n) before java8 and O(log n) on and after java 8.
+
+      Map.put("Orange", 80);
+      Map.put("Grape", 20);
+
+      Both are stored in the linkedList
+
+      Now how the Key is compared in the linked list/ BST -> equals() Method
+
+     */
