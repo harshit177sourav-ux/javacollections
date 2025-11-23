@@ -29,5 +29,8 @@ public class MapInterface {
         map.forEach((K,V) ->{
             System.out.println(K+ " : "+V);
         });
+        Map<Integer, String> map2 = new HashMap<>();
+        map2.putAll(map);
+        System.out.println(map2);
     }
 }
